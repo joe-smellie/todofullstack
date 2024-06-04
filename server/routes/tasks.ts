@@ -40,5 +40,16 @@ router.post('/', async (req, res) => {
 })
 //del 'api/v1/tasks/:id'
 
+router.delete('/:id', async(req, res) => {
+    try {
+        const id = Number(req.params.id)
+        await db.deleteTaskById(id)
+        res.sendStatus(200)
+    } catch (error) {
+        console.error(`Database error ${error}`)
+        res.sendStatus(500)
+    }
+})
+
 
 export default router
