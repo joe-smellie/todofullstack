@@ -17,5 +17,5 @@ export async function addTask(tasks: NewTask) {
 }
 
 export async function deleteTaskById(id: Id) {
-   db('tasks').where({ id }).del()
+   return db('tasks').where({ id }).del()
 }
