@@ -1,5 +1,6 @@
 export interface Task {
-    task: string
+    id: number
+    taskDetails: string
     priority: string
     completed: boolean
 }
@@ -7,5 +8,3 @@ export interface Task {
 export interface NewTask extends Task {
     id: number
 }
-
-export type Id = number

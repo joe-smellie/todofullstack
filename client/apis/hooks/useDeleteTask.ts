@@ -1,12 +1,12 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { deleteTaskById } from "../apiLink";
-import { Id } from "../../../models/tasks";
+import { deleteTaskById } from "../apiClient";
 
-export default function useCompletedTask() {
+
+export default function useDeleteTask() {
     const queryClient = useQueryClient()
 
     return useMutation({
-        mutationFn: async (id: Id) => {
+        mutationFn: async (id: number) => {
             deleteTaskById(id)
         },
         onSuccess: async () => {

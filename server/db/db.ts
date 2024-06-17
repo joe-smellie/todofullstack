@@ -12,8 +12,8 @@ export async function getTaskById(id: Id): Promise<Task> {
     return db('tasks').where({ id }).select().first()
 }
 
-export async function addTask(tasks: NewTask) {
-    return db('tasks').insert({...tasks})
+export async function addTask(taskDetails: Task) {
+    return db('tasks').insert({taskDetails})
 }
 
 export async function deleteTaskById(id: Id) {

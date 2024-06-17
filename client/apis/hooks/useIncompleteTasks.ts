@@ -1,12 +1,12 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { incompletedTask } from "../apiLink";
-import { Id } from "../../../models/tasks";
+import { incompletedTask } from "../apiClient";
 
-export default function useCompletedTask() {
+
+export default function useIncompleteTask() {
     const queryClient = useQueryClient()
 
     return useMutation({
-        mutationFn: async (id: Id) => {
+        mutationFn: async (id: number) => {
             incompletedTask(id)
         },
         onSuccess: async () => {

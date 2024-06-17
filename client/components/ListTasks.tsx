@@ -1,9 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { Task } from "../../models/tasks";
-import { getTasks } from "../apis/apiLink";
+import { getTasks } from "../apis/apiClient";
 import Todo from "./Todos";
 
-export default function ListTodos() {
+export default function ListTasks() {
 
     const {
         data,
@@ -16,16 +15,16 @@ export default function ListTodos() {
 
 
     if (error) {
-        return <p>No todos to show</p>
+        return <p>No tasks to show</p>
     }
     if (isLoading) {
-        return <p>Loading todos...</p>
+        return <p>Loading tasks...</p>
     }
 
 
     return (
         <>
-            <div className="list-all-todo">
+            <div className="list-all-tasks">
                 {data?.map((task, i) => (
                     <Todo key={i} task={task} />
                 ))}
