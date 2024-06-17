@@ -13,21 +13,21 @@ export async function getTaskById(id: number) {
     return res.body
 }
 
-export async function addTask(taskDetails: Task) {
-    await request.post(rootURL).send(taskDetails)
+export async function addTask(newTask: Task) {
+    await request.post(rootURL).send(newTask)
 }
 
 export async function deleteTaskById(id: number) {
     await request.delete(`${rootURL}/${id}`)
  }
 
-export async function completedTask(id: number): Promise<void> {
-    const res = await request.patch(`${rootURL}/complete${id}`)
+export async function completedTask(id: number) {
+    const res = await request.patch(`${rootURL}/complete/${id}`)
     return res.body
 }
 
 export async function incompletedTask(id: number) {
-    const res = await request.patch(`${rootURL}/incomplete${id}`)
+    const res = await request.patch(`${rootURL}/incomplete/${id}`)
     return res.body
 }
 

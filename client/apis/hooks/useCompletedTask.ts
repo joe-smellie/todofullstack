@@ -7,7 +7,7 @@ export default function useCompletedTask() {
 
     return useMutation({
         mutationFn: async (id: number) => {
-            completedTask(id)
+            await completedTask(id)
         },
         onSuccess: async () => {
             queryClient.invalidateQueries({ queryKey: ['tasks']})

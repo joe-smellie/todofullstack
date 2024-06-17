@@ -30,8 +30,8 @@ router.get('/:id', async(req, res) => {
 //POST 'api/v1/tasks'
 router.post('/', async (req, res) => {
     try {
-        const tasks = req.body
-        const id = await db.addTask(tasks)
+        const newTask = req.body
+        const id = await db.addTask(newTask)
         res.json(id)
     } catch (error) {
         console.error(`Database error ${error}`)

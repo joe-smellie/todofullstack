@@ -1,5 +1,5 @@
 import connection from "./connection";
-import {Task, NewTask, Id} from '../../models/tasks'
+import { Task } from '../../models/tasks'
 
 const db = connection
 
@@ -8,23 +8,23 @@ export async function getTasks(): Promise<Task[]> {
     return tasks
 }
 
-export async function getTaskById(id: Id): Promise<Task> {
+export async function getTaskById(id: number): Promise<Task> {
     return db('tasks').where({ id }).select().first()
 }
 
 export async function addTask(taskDetails: Task) {
-    return db('tasks').insert({taskDetails})
+    return db('tasks').insert(taskDetails)
 }
 
-export async function deleteTaskById(id: Id) {
+export async function deleteTaskById(id: number) {
    return db('tasks').where({ id }).del()
 }
 
-export async function completedTask(id: Id) {
+export async function completedTask(id: number) {
     return db('tasks').where({ id }).update('completed', true)
 }
 
-export async function incompletedTask(id: Id) {
-    return db('task').where({ id }).update('incomplete', true)
+export async function incompletedTask(id: number) {
+    return db('task').where({ id }).update('completed', false)
     
 }

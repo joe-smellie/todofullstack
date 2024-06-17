@@ -3,11 +3,9 @@ import { Task } from "../../models/tasks";
 import useCompletedTask from "../apis/hooks/useAddTask";
 import useIncompleteTask from "../apis/hooks/useIncompleteTasks";
 
-interface TaskProps{
-    task: Task
-}
 
-export default function Todo({task}: TaskProps) {
+
+export default function Todo(task: Task) {
     const completeTask = useCompletedTask()
     const incompleteTask = useIncompleteTask()
 
@@ -26,6 +24,8 @@ export default function Todo({task}: TaskProps) {
     const incomplete = async (id: number) => {
         incompleteTask.mutateAsync(id)
     }
+
+    
     
     return (
         <>
@@ -41,7 +41,7 @@ export default function Todo({task}: TaskProps) {
                     <label htmlFor={`${task.id}`} id={`${task.id}`}>
                         {task.taskDetails}
                     </label>
-                    <button className="button" aria-labelledby={`${task.id}`}></button>
+                    <button className="destroy" aria-labelledby={`${task.id}`}></button>
                 </div>
             </li>
         </>

@@ -1,7 +1,6 @@
-import TaskForm from "./AddTodo"
+import TaskForm from "./TaskForm"
 import ListTasks from "./ListTasks"
 
-//import ListTodos from "./ListTodos"
 
 
 function App() {

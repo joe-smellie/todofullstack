@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react"
+import React from "react"
 import { useState } from "react"
 import { Task } from "../../models/tasks"
 
@@ -6,7 +6,7 @@ import useAddTask from "../apis/hooks/useAddTask"
 
 // eslint-disable-next-line no-unused-vars
 function TaskForm() {
-  const [newTask, setNewTask] = useState('')
+  const [newTasks, setNewTask] = useState('')
   const addTask = useAddTask()
 
   const handleChange =( e: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,18 +16,16 @@ function TaskForm() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
 
-  if (newTask.length < 1) return
+  if (newTasks.length < 1) return
 
-  const task: Task = {
+  const newTask: Task = {
     id: NaN,
-    taskDetails: newTask,
+    taskDetails: newTasks,
     priority: 'High',
     completed: false,
   }
 
- await addTask.mutateAsync(task)
-  setNewTask('')
-
+ await addTask.mutateAsync(newTask)
 }
   
   return (
@@ -38,7 +36,7 @@ function TaskForm() {
           aria-labelledby="newTask"
           type="text"
           placeholder="add a new task"
-          value={newTask}
+          value={newTasks}
           onChange={handleChange}
         />
       </form>
