@@ -19,3 +19,12 @@ export async function addTask(tasks: NewTask) {
 export async function deleteTaskById(id: Id) {
    return db('tasks').where({ id }).del()
 }
+
+export async function completedTask(id: Id) {
+    return db('tasks').where({ id }).update('completed', true)
+}
+
+export async function incompletedTask(id: Id) {
+    return db('task').where({ id }).update('incomplete', true)
+    
+}

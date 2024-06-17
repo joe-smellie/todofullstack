@@ -51,5 +51,26 @@ router.delete('/:id', async(req, res) => {
     }
 })
 
+router.patch('/complete/:id', async(req, res) => {
+        try {
+            const id = Number(req.params.id)
+            await db.completedTask(id)
+            res.sendStatus(200)
+        } catch (error) {
+            console.error(`Database error ${error}`)
+            res.sendStatus(500)
+        }
+    })
+
+router.patch('/incomplete/:id', async(req, res) => {
+        try {
+            const id = Number(req.params.id)
+            await db.incompletedTask(id)
+            res.sendStatus(200)
+        } catch (error) {
+            console.error(`Database error ${error}`)
+            res.sendStatus(500)
+        }
+    })
 
 export default router
