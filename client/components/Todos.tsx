@@ -1,6 +1,6 @@
 import React from "react";
 import { Task } from "../../models/tasks";
-import useCompletedTask from "../apis/hooks/useAddTask";
+import useCompletedTask from "../apis/hooks/useCompletedTask";
 import useIncompleteTask from "../apis/hooks/useIncompleteTasks";
 
 
@@ -18,14 +18,14 @@ export default function Todo(task: Task) {
     }
     
     const complete = async (id: number) => {
-        completeTask.mutateAsync(id)
+        completeTask.mutate(id)
     }
 
     const incomplete = async (id: number) => {
-        incompleteTask.mutateAsync(id)
+        incompleteTask.mutate(id)
     }
 
-    
+
     
     return (
         <>
@@ -41,7 +41,7 @@ export default function Todo(task: Task) {
                     <label htmlFor={`${task.id}`} id={`${task.id}`}>
                         {task.taskDetails}
                     </label>
-                    <button className="destroy" aria-labelledby={`${task.id}`}></button>
+                    <button className="delete" aria-labelledby={`${task.id}`}></button>
                 </div>
             </li>
         </>

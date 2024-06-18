@@ -25,6 +25,6 @@ export async function completedTask(id: number) {
 }
 
 export async function incompletedTask(id: number) {
-    return db('task').where({ id }).update('completed', false)
+    return db('tasks').where({ id }).update('completed', false)
     
 }

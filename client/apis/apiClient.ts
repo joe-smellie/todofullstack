@@ -1,5 +1,5 @@
 import request from "superagent"
-import { Task, NewTask} from "../../models/tasks"
+import { Task } from "../../models/tasks"
 
 const rootURL = '/api/v1/tasks'
 
