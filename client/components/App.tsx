@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <header className="header">
-        <h1 id="newTask">Tasks</h1>
+        <h1 id="newTask">Tasks by Joe</h1>
         <TaskForm />
       </header>
       <section className="main">
