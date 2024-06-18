@@ -40,6 +40,7 @@ function TaskForm() {
           value={newTasks}
           onChange={handleChange}
         />
+        <button onClick={handleSubmit}>Submit</button>
       </form>
     </>
   )
